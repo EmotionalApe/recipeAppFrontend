@@ -2,10 +2,12 @@ import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useGetUserID } from '../hooks/useGetUserID'
+import { useCookies } from 'react-cookie'
 
 const Home = () => {
   const [recipes, setRecipes] = useState([])
   const [savedRecipes, setSavedRecipes] = useState([])
+  const [cookies, setCookies] = useCookies(["access_token"])
   const userID = useGetUserID()
 
   useEffect(() => {
@@ -28,13 +30,14 @@ const Home = () => {
     }
   
     fetchRecipe();
-    fetchSavedRecipe();
-  }, [userID]); // Make sure to include userID in the dependency array
+    
+    if (cookies.access_token) fetchSavedRecipe()
+  }, [userID]); 
   
   const saveRecipe = async (recipeID) => {
     try {
-      await axios.put("http://localhost:3001/recipes", { recipeID, userID });
-      // Update the savedRecipes state after saving a new recipe
+      await axios.put("http://localhost:3001/recipes", { recipeID, userID }, {headers:{authorization : cookies.access_token}});
+
       setSavedRecipes((prevSavedRecipes) => [...prevSavedRecipes, recipeID]);
     } catch (error) {
       console.error(error);
