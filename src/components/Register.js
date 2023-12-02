@@ -20,7 +20,7 @@ const Register = () => {
 
     return (
         <div>
-            <form className='bg-blue-950 p-5 w-[400px] h-[500px] text-white flex flex-col justify-evenly  items-center rounded-md text-[20px]' onSubmit={handleRegister}>
+            <form className='bg-black p-5 w-[400px] h-[500px] text-white flex flex-col justify-evenly  items-center rounded-md text-[20px]' onSubmit={handleRegister}>
                 <h2 className='text-3xl font-extrabold'>Register</h2>
 
                 <div>
@@ -33,7 +33,7 @@ const Register = () => {
                     <input className='rounded-md text-black pl-1' type='password' id='rpassword' value={password} onChange={(event) => { setPassword(event.target.value) }} />
                 </div>
 
-                <button className='bg-lime-400 pl-5 pr-5 pt-3 pb-3 rounded-md text-blue-950 font-extrabold' type='submit'>Register</button>
+                <button className='bg-gray-700 pl-5 pr-5 pt-3 pb-3 rounded-md text-white font-extrabold' type='submit'>Register</button>
 
             </form>
         </div>

@@ -29,8 +29,8 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form className='bg-blue-950 p-5 w-[400px] h-[500px] text-white flex flex-col justify-evenly  items-center rounded-md text-[20px]' onSubmit={handleLogin}>
+        <div className=''>
+            <form className='bg-black p-5 w-[400px] h-[500px] text-white flex flex-col justify-evenly  items-center rounded-md text-[20px]' onSubmit={handleLogin}>
                 <h2 className='text-3xl font-extrabold'>Login</h2>
 
                 <div>
@@ -43,7 +43,7 @@ const Login = () => {
                     <input className='rounded-md text-black pl-1' type='password' id='password' value={password} onChange={(event) => { setPassword(event.target.value) }} />
                 </div>
 
-                <button className='bg-lime-400 pl-5 pr-5 pt-3 pb-3 rounded-md text-blue-950 font-extrabold'>Login</button>
+                <button className='bg-gray-700 pl-5 pr-5 pt-3 pb-3 rounded-md text-white font-extrabold'>Login</button>
 
             </form>
         </div>
